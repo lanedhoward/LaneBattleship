@@ -12,28 +12,41 @@ using namespace ConsoleUtils;
 
 #pragma once
 
+ShipBoard* ptShipBoard;
 ShipBoard shipBoard;
+
+GuessBoard* ptGuessBoard;
 GuessBoard guessBoard;
 
 void DisplayBoards();
 
+void GameStep(Guesser gary);
+
+void EndGame();
+
 int main()
 {
-    ShipBoard shipBoard = ShipBoard();
-    GuessBoard guessBoard = GuessBoard();
+    
+    ptShipBoard = new ShipBoard();
+    shipBoard = *ptShipBoard;
+
+    ptGuessBoard = new GuessBoard();
+    guessBoard = *ptGuessBoard;
+
     Guesser gary = Guesser(shipBoard, guessBoard);
+    
+    Print("Welcome to Lane's Battleship Game");
 
     DisplayBoards();
 
     WaitForKeyPress();
 
-    Print(gary.Step());
 
-    WaitForKeyPress();
-
-    DisplayBoards();
-
-    WaitForKeyPress();
+    for (size_t i = 0; i < 5; i++)
+    {
+        GameStep(gary);
+    }
+    EndGame();
 }
 
 void DisplayBoards()
@@ -45,12 +58,28 @@ void DisplayBoards()
     Print("Ships: " + shipBoard.GetNumberOfShips());
     Print();
 
-    Print("Game Board: ");
+    Print("Guess Board: ");
 
     Print(guessBoard.GuessDisplay());
 }
 
+void GameStep(Guesser gary)
+{
+    
+    Print(gary.Step());
 
+    WaitForKeyPress();
+
+    DisplayBoards();
+
+    WaitForKeyPress();
+}
+
+void EndGame()
+{
+    delete ptShipBoard;
+    delete ptGuessBoard;
+}
 
 
 

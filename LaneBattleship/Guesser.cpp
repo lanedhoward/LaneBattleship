@@ -23,7 +23,7 @@ public:
 	int huntSpots = 0; // number of near misses (unfound) we know about
 	
 	//https://stackoverflow.com/questions/1711990/what-is-this-weird-colon-member-syntax-in-the-constructor
-	Guesser(ShipBoard& _shipBoard, GuessBoard& _guessBoard) : shipBoard(_shipBoard), guessBoard(_guessBoard)
+	Guesser(ShipBoard & _shipBoard, GuessBoard & _guessBoard) : shipBoard(_shipBoard), guessBoard(_guessBoard)
 	{
 		state = GuesserState::Search;
 	}
