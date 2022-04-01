@@ -139,11 +139,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ConsoleUtils.cpp" />
+    <ClCompile Include="GuessBoard.cpp" />
+    <ClCompile Include="Guesser.cpp" />
     <ClCompile Include="LaneBattleship.cpp" />
+    <ClCompile Include="ShipBoard.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\instructions.txt" />
     <Text Include="notes.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ConsoleUtils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

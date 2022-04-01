@@ -10,7 +10,7 @@ water/ship/destroyed/guessed? mostly for display purposes.
 
 guess array needs 5 states: unknown, miss, hit, near miss (unfound), near miss (found)
 near miss has two states so the ai knows if it should keep guessing around there or not.
-instructions just say "adjacent" so im gonna say near miss only works in cardinal directions, no diaganol.
+instructions just say "adjacent" . im gonna say near miss counts diagnols 
 
 ai state machine:
 

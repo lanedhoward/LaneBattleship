@@ -2,11 +2,57 @@
 //
 
 #include <iostream>
+#include <string>
+#include "ShipBoard.cpp"
+#include "GuessBoard.cpp"
+#include "ConsoleUtils.h"
+#include "Guesser.cpp"
+
+using namespace ConsoleUtils;
+
+#pragma once
+
+ShipBoard shipBoard;
+GuessBoard guessBoard;
+
+void DisplayBoards();
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    ShipBoard shipBoard = ShipBoard();
+    GuessBoard guessBoard = GuessBoard();
+    Guesser gary = Guesser(shipBoard, guessBoard);
+
+    DisplayBoards();
+
+    WaitForKeyPress();
+
+    Print(gary.Step());
+
+    WaitForKeyPress();
+
+    DisplayBoards();
+
+    WaitForKeyPress();
 }
+
+void DisplayBoards()
+{
+    Print("Ship Board: ");
+
+    Print(shipBoard.ShipDisplay());
+
+    Print("Ships: " + shipBoard.GetNumberOfShips());
+    Print();
+
+    Print("Game Board: ");
+
+    Print(guessBoard.GuessDisplay());
+}
+
+
+
+
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
