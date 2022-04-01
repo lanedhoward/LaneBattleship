@@ -18,9 +18,12 @@ ShipBoard shipBoard;
 GuessBoard* ptGuessBoard;
 GuessBoard guessBoard;
 
+Guesser* ptGary;
+//Guesser gary;
+
 void DisplayBoards();
 
-void GameStep(Guesser gary);
+void GameStep(Guesser& gary);
 
 void EndGame();
 
@@ -33,8 +36,9 @@ int main()
     ptGuessBoard = new GuessBoard();
     guessBoard = *ptGuessBoard;
 
-    Guesser gary = Guesser(shipBoard, guessBoard);
-    
+    ptGary = new Guesser(shipBoard, guessBoard);
+    //gary = *ptGary;
+
     Print("Welcome to Lane's Battleship Game");
 
     DisplayBoards();
@@ -44,7 +48,7 @@ int main()
 
     for (size_t i = 0; i < 5; i++)
     {
-        GameStep(gary);
+        GameStep(*ptGary);
     }
     EndGame();
 }
@@ -63,7 +67,7 @@ void DisplayBoards()
     Print(guessBoard.GuessDisplay());
 }
 
-void GameStep(Guesser gary)
+void GameStep(Guesser& gary)
 {
     
     Print(gary.Step());
@@ -79,6 +83,7 @@ void EndGame()
 {
     delete ptShipBoard;
     delete ptGuessBoard;
+    delete ptGary;
 }
 
 

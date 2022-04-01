@@ -81,6 +81,8 @@ public:
 			return "*";
 		case GuessBoardValues::NearMissUnfound:
 			return "#";
+		default:
+			return "~";
 		}
 	}
 

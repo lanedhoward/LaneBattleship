@@ -26,8 +26,29 @@ public:
 	Guesser(ShipBoard & _shipBoard, GuessBoard & _guessBoard) : shipBoard(_shipBoard), guessBoard(_guessBoard)
 	{
 		state = GuesserState::Search;
+
+		huntSpotX = -1;
+		huntSpotY = -1;
+
+		huntSpots = 0;
 	}
 
+	/*
+	//move assignment adapted from https://riptutorial.com/cplusplus/example/6993/move-assignment
+	Guesser& operator= (Guesser&& other) {
+		this->shipBoard = other.shipBoard;
+		this->guessBoard = other.guessBoard;
+
+		this->state = other.state;
+
+		this->huntSpotX = other.huntSpotX;
+		this->huntSpotY = other.huntSpotY;
+
+		this->huntSpots = other.huntSpots;
+
+		return *this;
+	}
+	*/
 	GuessBoardValues Guess(int x, int y)
 	{
 		//check the ship board- if it is a ship, return ship
@@ -136,6 +157,8 @@ public:
 				break;
 			}
 			case GuesserState::Hunt:
+				result += "State: Hunt. ";
+
 				break;
 		}
 
