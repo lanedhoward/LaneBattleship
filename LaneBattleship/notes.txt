@@ -1,0 +1,20 @@
+just an ai vs a randomly generated board.
+
+board is a 2d array 8x8.
+randomly choose some points from that array to place ships.
+
+maybe two arrays. one to hold ships and one to hold guesses. like the real game.
+
+ship array needs 3 states: water, ship, destroyed. maybe just water/ship. depends on which would be easier.
+water/ship/destroyed/guessed? mostly for display purposes.
+
+guess array needs 5 states: unknown, miss, hit, near miss (unfound), near miss (found)
+near miss has two states so the ai knows if it should keep guessing around there or not.
+instructions just say "adjacent" so im gonna say near miss only works in cardinal directions, no diaganol.
+
+ai state machine:
+
+search: check random unknown spots each turn.
+
+hunt: check cardinal directions around a near miss (unfound) square. if you find a ship around a near miss (unfound), make it near miss(found).
+save the currently hunted near miss square coords between turns so we can keep checking until it is done.
