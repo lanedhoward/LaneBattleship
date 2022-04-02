@@ -47,7 +47,9 @@ int main()
 
     for (size_t i = 0; i < 100; i++) // 100 loop length is arbritary, but thats enough to go through all spaces and even have wasted turns
     {
+        //there can be a lot of turns bc sometimes a turn can be spent checking back over a near miss but realizing all adjacent spots have been guessed already
         Print("Turn: " + std::to_string(i + 1));
+        
         if (shipBoard.GetNumberOfShips() > 0) //if there is still ships to be found
         {
             GameStep(*ptGary);

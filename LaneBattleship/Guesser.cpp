@@ -201,8 +201,8 @@ public:
 				bool foundValidSpot = false;
 
 				//loop through adjacent spaces code adapted from https://stackoverflow.com/questions/2035522/get-adjacent-elements-in-a-two-dimensional-array
-				for (int dx = -1; dx <= 1; ++dx) {
-					for (int dy = -1; dy <= 1; ++dy) {
+				for (int dy = -1; dy <= 1; ++dy) {
+					for (int dx = -1; dx <= 1; ++dx) {
 						if (dx != 0 || dy != 0) { //not the center space
 							if (IsValidGuess(huntSpotX + dx, huntSpotY + dy))
 							{
