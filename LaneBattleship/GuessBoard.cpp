@@ -86,6 +86,25 @@ public:
 		}
 	}
 
+	string GuessBoardValuesToStringLong(GuessBoardValues val)
+	{
+		switch (val)
+		{
+		case GuessBoardValues::Unknown:
+			return "Unknown [~]";
+		case GuessBoardValues::Miss:
+			return "Miss [O]";
+		case GuessBoardValues::Hit:
+			return "Hit [X]";
+		case GuessBoardValues::NearMissFound:
+			return "Near Miss (Found) [*]";
+		case GuessBoardValues::NearMissUnfound:
+			return "Near Miss (Unfound) [#]";
+		default:
+			return "Unknown [~]";
+		}
+	}
+
 	void Write(int x, int y, GuessBoardValues val)
 	{
 		Board[x][y] = val;

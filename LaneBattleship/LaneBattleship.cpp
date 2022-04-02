@@ -45,11 +45,22 @@ int main()
 
     WaitForKeyPress();
 
-
-    for (size_t i = 0; i < 5; i++)
+    for (size_t i = 0; i < 100; i++) // 100 loop length is arbritary, but thats enough to go through all spaces and even have wasted turns
     {
-        GameStep(*ptGary);
+        Print("Turn: " + std::to_string(i + 1));
+        if (shipBoard.GetNumberOfShips() > 0) //if there is still ships to be found
+        {
+            GameStep(*ptGary);
+        }
+        else
+        {
+            Print("All ships found!");
+            break;
+        }
     }
+    //display final game boards;
+    DisplayBoards();
+    
     EndGame();
 }
 
@@ -59,7 +70,7 @@ void DisplayBoards()
 
     Print(shipBoard.ShipDisplay());
 
-    Print("Ships: " + shipBoard.GetNumberOfShips());
+    Print("Ships: " + to_string(shipBoard.GetNumberOfShips()));
     Print();
 
     Print("Guess Board: ");
@@ -72,7 +83,7 @@ void GameStep(Guesser& gary)
     
     Print(gary.Step());
 
-    WaitForKeyPress();
+    //WaitForKeyPress();
 
     DisplayBoards();
 

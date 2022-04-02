@@ -104,9 +104,9 @@ class ShipBoard
 			return result;
 		}
 
-		string GetNumberOfShips()
+		int GetNumberOfShips()
 		{
-			return to_string(m_totalShips);
+			return m_totalShips;
 		}
 
 		void Write(int x, int y, ShipBoardValues val)
